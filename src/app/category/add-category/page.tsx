@@ -81,7 +81,9 @@ export default function AddCategory() {
         const res =  await add_new_category(finalData)
         if(res.success) {
             toast.success(res?.message);
-            Router.push('/Dashboard')
+            setTimeout(() => {
+                Router.push('/Dashboard')
+            }, 2000);
             setLoader(false)
         }else{
             toast.error(res?.message)
