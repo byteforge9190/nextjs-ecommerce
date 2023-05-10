@@ -13,7 +13,7 @@ export async function DELETE(req: Request) {
       const { searchParams } = new URL(req.url);
       const id = searchParams.get('id');
 
-
+      if(!id)  return NextResponse.json({ success: true, message: "Category ID is Required" });
 
       const deleteData = await Category.findByIdAndDelete(id);
 
